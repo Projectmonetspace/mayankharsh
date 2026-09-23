@@ -1,6 +1,14 @@
+import Image from 'next/image';
 import { Hero } from '@/components/hero';
-import { JsonLd } from '@/components/ui';
+import { WorkRail } from '@/components/work-rail';
+import { Arrow, ContactBand, JsonLd, Label } from '@/components/ui';
 import { site } from '@/lib/content';
 import { metadata as makeMetadata, person } from '@/lib/seo';
 export const metadata=makeMetadata('Creative Director & Social Media Strategist','Mayank Harsh’s portfolio of creative direction, Instagram storytelling and creator work across art, literature and culture.','/');
-export default function Home(){return <><JsonLd data={[{'@context':'https://schema.org','@type':'WebSite',name:site.name,url:site.url},{'@context':'https://schema.org',...person}]}/><Hero/></>}
+export default function Home(){return <><JsonLd data={{'@context':'https://schema.org','@type':'WebSite',name:site.name,url:site.url}}/><JsonLd data={{'@context':'https://schema.org',...person}}/><Hero/><WorkRail/>
+  <section className="featured-home" aria-labelledby="featured-heading"><div className="featured-home-media"><Image src="/media/CzpAg5nKgWc.jpg" alt="Reel cover showing a person carrying a stack of books" width={540} height={960} sizes="(max-width: 700px) 100vw, 52vw" loading="lazy"/></div><div className="featured-home-copy"><Label>[ FEATURED / CREATOR_PROJECT ]</Label><h2 id="featured-heading">A world<br/>built around<br/>a feeling.</h2><p>On @sl6dl7, literature and art become a visual language for the social feed. See the original pieces and the creative approach behind them.</p><a className="text-link" href="/work/sl6dl7/">Explore the case study <Arrow diagonal/></a><span className="micro">01 / PERSONAL CREATOR PRACTICE</span></div></section>
+  <section className="manifesto gutter" aria-labelledby="manifesto-heading"><Label>[ POINT_OF_VIEW ]</Label><h2 id="manifesto-heading">The image catches you.<br/><span>The feeling stays.</span></h2><div className="manifesto-bottom"><p>My practice moves between poetry, art, music and the formats people meet every day. Creative direction is the work of making those choices belong to the same story.</p><a className="text-link" href="/about/">About Mayank <Arrow diagonal/></a></div></section>
+  <section className="practice-grid" aria-label="Explore the practice"><a href="/expertise/creative-direction/"><span>01 / THE PRACTICE <Arrow diagonal/></span><h3>Creative<br/>direction.</h3></a><a href="/expertise/social-media-strategy/"><span>02 / THE PRACTICE <Arrow diagonal/></span><h3>Social media<br/>strategy.</h3></a><a href="/work/"><span>03 / THE RECORD <Arrow diagonal/></span><h3>Selected<br/>work.</h3></a></section>
+  <section className="agency-section gutter" aria-labelledby="agency-heading"><div><Label>[ FOUNDER / PROJECT_MONET ]</Label><h2 id="agency-heading">A personal practice.<br/>An agency perspective.</h2><p>Mayank Harsh is the founder and creative director of Project Monet. This site documents his own creator work; Project Monet is the home for agency engagements.</p><a className="text-link" href="/project-monet/">Understand the relationship <Arrow diagonal/></a></div><div className="agency-art" aria-hidden="true"><small>THE RELATIONSHIP / 02</small><b>↗</b><span>MAYANK<br/>HARSH<br/>× MONET</span></div></section>
+  <ContactBand/>
+  </>}
