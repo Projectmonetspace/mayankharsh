@@ -1,2 +1,40 @@
-import { ButtonLink, Label } from './ui';
-export function Hero(){return <section className="hero gutter" aria-labelledby="hero-heading"><div className="hero-topline"><Label>[ CREATIVE_DIRECTION / SOCIAL_STRATEGY ]</Label><span className="eyebrow">PERSONAL PORTFOLIO — 01</span></div><div className="hero-copy"><p className="hero-name">MAYANK HARSH</p><h1 id="hero-heading">Stories that<br/><span>resonate.</span></h1><p className="hero-description">Creative Director. Social Media Strategist.<br/>Building communities through culture,<br className="desktop-only"/> emotion and storytelling.</p></div><div className="signal-map" aria-hidden="true"><svg className="signal-lines" viewBox="0 0 720 720" fill="none"><defs><radialGradient id="glow"><stop stopColor="#afddff" stopOpacity=".16"/><stop offset="1" stopColor="#afddff" stopOpacity="0"/></radialGradient><linearGradient id="thread" x1="150" y1="150" x2="570" y2="560" gradientUnits="userSpaceOnUse"><stop stopColor="#afddff" stopOpacity=".1"/><stop offset=".5" stopColor="#afddff" stopOpacity=".9"/><stop offset="1" stopColor="#afddff" stopOpacity=".08"/></linearGradient></defs><circle cx="365" cy="350" r="280" fill="url(#glow)"/><g className="threads">{Array.from({length:28},(_,i)=><ellipse key={i} cx="365" cy="350" rx={90+i*3.5} ry={220-i*1.9} transform={`rotate(${i*6.3-70} 365 350)`} stroke="url(#thread)" strokeWidth={i%5===0?'.9':'.45'}/>)}</g><g stroke="#afddff" strokeOpacity=".45" strokeWidth=".7"><path className="draw-line" d="M365 168V95H175l-48-45H20M500 338h130l40 40h50M298 484l-95 110H30"/><path d="M343 150h44v44h-44zM479 316h44v44h-44zM277 463h44v44h-44z"/><path d="M359 172h12m-6-6v12M495 338h12m-6-6v12M293 485h12m-6-6v12"/></g></svg><div className="node-label node-culture"><b>[ CULTURAL_SIGNAL ]</b><span>The references we recognise.</span></div><div className="node-label node-emotion"><b>[ EMOTION ]</b><span>The feeling beneath the idea.</span></div><div className="node-label node-story"><b>[ STORY_ENGINE ]</b><span>From feeling to format.</span></div><span className="map-caption">CULTURE → EMOTION → FORMAT</span></div><div className="hero-bottom"><ButtonLink href="#work">Explore selected work</ButtonLink><div className="hero-note"><Label>WORDS. IMAGES. HUMAN CONNECTION.</Label><p>Poetry, literature and music.<br/>A creator’s practice, a strategist’s perspective.</p><a href="/about/">Meet Mayank <span aria-hidden="true">↗</span></a></div></div><a className="scroll-cue" href="#work">SCROLL TO EXPLORE <span>↓</span></a></section>}
+import Image from 'next/image';
+import { Arrow, Label } from './ui';
+
+const marks = [
+  [32.7,12.6],[32.7,37.5],[32.7,61.9],[32.7,86.2],
+  [71.4,12.6],[71.4,37.5],[71.4,61.9],[71.4,86.2],
+];
+
+export function Hero() {
+  return <section className="hero" aria-labelledby="hero-heading">
+    <div className="hero-grid" aria-hidden="true">
+      {marks.map(([y,x])=><span className="grid-cross" key={`${x}-${y}`} style={{top:`${y}%`,left:`${x}%`}}/>)}
+    </div>
+    <div className="hero-kicker gutter"><Label>[ MAYANK_HARSH / CREATIVE PRACTICE ]</Label><span>01 — AN INTERSECTION OF ART & THE FEED</span></div>
+    <div className="hero-copy gutter">
+      <p className="hero-overline">CREATIVE DIRECTOR <span> / </span> SOCIAL STRATEGIST</p>
+      <h1 id="hero-heading">Feeling,<br/>given <em>form.</em></h1>
+      <p className="hero-intro">Art, literature and culture translated into visual stories for the social feed.</p>
+    </div>
+    <div className="hero-art" aria-label="An editorial composition of selected imagery from Mayank Harsh’s creator work" role="img">
+      <div className="art-glow" aria-hidden="true"/>
+      <div className="art-frame art-main"><Image src="/media/CrodTefqiKm.jpg" alt="" fill priority sizes="(max-width: 700px) 78vw, 42vw" className="art-image"/></div>
+      <div className="art-frame art-portrait"><Image src="/media/C093-LuKwqW.jpg" alt="" fill priority sizes="(max-width: 700px) 34vw, 16vw" className="art-image"/></div>
+      <div className="art-frame art-books"><Image src="/media/CzpAg5nKgWc.jpg" alt="" fill sizes="(max-width: 700px) 30vw, 13vw" className="art-image"/></div>
+      <span className="art-coordinate art-coordinate-top" aria-hidden="true">001 / IMAGE_AS_EMOTION</span>
+      <span className="art-coordinate art-coordinate-bottom" aria-hidden="true">POETRY · LITERATURE · CULTURE</span>
+    </div>
+    <div className="hero-annotations" aria-hidden="true">
+      <span className="node node-one"/><span className="node node-two"/><span className="node node-three"/>
+      <svg className="hero-connectors" viewBox="0 0 1440 900" preserveAspectRatio="none" fill="none"><path d="M535 210h105l36 38h53M1047 281h105l40-43h104M1024 650h121l55 58h90" stroke="currentColor" strokeWidth="1" strokeDasharray="1 0"/></svg>
+      <span className="annotation annotation-one">[ CULTURAL_SIGNAL ]<small>THE REFERENCE</small></span>
+      <span className="annotation annotation-two">[ CREATIVE_CORE ]<small>THE FEELING</small></span>
+      <span className="annotation annotation-three">[ AUDIENCE_CONNECTION ]<small>THE FORM</small></span>
+    </div>
+    <div className="hero-bottom gutter">
+      <div className="hero-action"><a className="button" href="#selected-work">EXPLORE SELECTED WORK <Arrow diagonal/></a><span>SCROLL TO EXPLORE <b>↓</b></span></div>
+      <aside className="hero-card"><div className="hero-card-head"><span>CREATOR PRACTICE</span><b>01 / 02</b></div><p>Poetry, literature, music and visual storytelling in conversation with the feed.</p><a href="/work/sl6dl7/">OPEN THE WORK <Arrow diagonal/></a></aside>
+    </div>
+  </section>
+}
