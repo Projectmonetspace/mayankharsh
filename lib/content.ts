@@ -1,11 +1,11 @@
 export const site = { name: 'Mayank Harsh', url: 'https://mayankharsh.space', email: 'contact@mayankharsh.space', date: '2026-09-23', instagram: 'https://www.instagram.com/sl6dl7/', secondInstagram: 'https://www.instagram.com/shehzada.says/' };
 export const reels = [
- { id:'C093-LuKwqW', title:'Portrait / stillness', category:'Selected reel 01', alt:'Reel cover: close portrait of a person in a white shirt and pearl earring' },
- { id:'CzuANP0K5ML', title:'Stairwell / movement', category:'Selected reel 02', alt:'Reel cover: person descending a dim stairwell' },
- { id:'C3xkNnAoWa_', title:'The night sky', category:'Selected reel 03', alt:'Reel cover: Van Gogh’s Starry Night painting' },
- { id:'CrodTefqiKm', title:'A book / a moment', category:'Selected reel 04', alt:'Reel cover: person in a dark coat holding an open book' },
- { id:'CzpAg5nKgWc', title:'Books in hand', category:'Selected reel 05', alt:'Reel cover: person in a tan coat carrying a stack of books' },
- { id:'CytnwFRq0c2', title:'Walking together', category:'Selected reel 06', alt:'Reel cover: two people walking away in dark clothing' },
+ { id:'CrodTefqiKm', title:'The night sky', category:'Art / memory', alt:'Reel cover: Vincent van Gogh’s The Starry Night' },
+ { id:'C093-LuKwqW', title:'A portrait in profile', category:'Portrait / atmosphere', alt:'Reel cover: close portrait in profile with a pearl earring' },
+ { id:'CzpAg5nKgWc', title:'Books in hand', category:'Literature / form', alt:'Reel cover: person in a tan coat carrying a stack of books' },
+ { id:'C3xkNnAoWa_', title:'Between floors', category:'Movement / stillness', alt:'Reel cover: a person descending a dim stairwell' },
+ { id:'CytnwFRq0c2', title:'The page', category:'Literature / pause', alt:'Reel cover: close view of a person seated with an open book' },
+ { id:'CzuANP0K5ML', title:'The crowd', category:'Culture / observation', alt:'Reel cover: several people seen from behind in a dark interior' },
 ];
 export type Study = { slug:string; account:string; title:string; summary:string; role:string; field:string; index:boolean; sections:{label:string;title:string;body:string}[]; sources:{label:string;url:string}[] };
 export const studies:Study[] = [

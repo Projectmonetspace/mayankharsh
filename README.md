@@ -1,6 +1,12 @@
-# Mayank Harsh — portfolio rebuild
+# Mayank Harsh — V2 portfolio rebuild
 
 A static-first Next.js 16, TypeScript and CSS design system. The generated `out/` directory contains real HTML for every publishable route. Only the mobile menu and selected-work rail hydrate in the browser. Source media remains unaltered. No production configuration or domain is changed by this branch.
+
+## V2 visual direction
+
+The rejected V1 hero, wireframe signal map, section system, header and carousel presentation were removed on `redesign/lumen-v2-faithful-rebuild` and rebuilt from a fresh visual base. The hero follows the approved MotionSites/LŪMEN viewport composition: 20/35px gutters, measured technical grid, left editorial headline, central/right dominant art object, geometric nodes/connectors, lower CTA and chamfered information card. The object uses original @sl6dl7 creator-work covers, led by *The Starry Night* with portrait and literature fragments. These are images from the work, not a portrait of Mayank or a claim that he authored the underlying painting. The technical interface annotates the visual. The site continues into an image-led gallery and varied editorial sections.
+
+The first two gallery covers load eagerly so the rail has visible work immediately; remaining covers load lazily. Automatic motion uses requestAnimationFrame only while the rail is visible, stops during interaction, and is disabled for reduced-motion preferences. Native horizontal scroll remains available without capturing vertical wheel movement.
 
 ## Development
 
