@@ -1,0 +1,9 @@
+import { ReactNode } from 'react';
+import { site } from '@/lib/content';
+export function Arrow({diagonal=false}:{diagonal?:boolean}) { return <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.3">{diagonal?<path d="M5 19 19 5M5 5h14v14"/>:<path d="M3 12h17m-7-7 7 7-7 7"/>}</svg> }
+export function Label({children}:{children:ReactNode}) {return <p className="eyebrow">{children}</p>}
+export function ButtonLink({href,children,secondary=false}:{href:string;children:ReactNode;secondary?:boolean}) {return <a className={`button ${secondary?'button-outline':''}`} href={href}>{children}<Arrow diagonal/></a>}
+export function JsonLd({data}:{data:unknown}) {return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(data).replace(/</g,'\\u003c')}}/>}
+export function Breadcrumbs({items}:{items:{name:string;path:string}[]}) {return <><nav aria-label="Breadcrumb" className="breadcrumbs"><a href="/">Home</a>{items.map(i=><span key={i.path}><span aria-hidden="true"> / </span><a href={i.path}>{i.name}</a></span>)}</nav><JsonLd data={{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{name:'Home',path:'/'},...items].map((i,n)=>({'@type':'ListItem',position:n+1,name:i.name,item:site.url+i.path}))}}/></>}
+export function PageIntro({label,title,description}:{label:string;title:string;description:string}) {return <header className="page-intro"><Label>{label}</Label><h1>{title}</h1><p className="lede">{description}</p></header>}
+export function ContactBand(){return <section id="contact" className="contact-band gutter"><Label>[ NEXT_CONVERSATION ]</Label><div><h2>Let’s make<br/><span>something resonate.</span></h2><a className="round-link" href="/contact/" aria-label="Contact Mayank"><Arrow diagonal/></a></div><a className="text-link" href={`mailto:${site.email}`}>{site.email}<Arrow diagonal/></a></section>}
